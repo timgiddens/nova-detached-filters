@@ -117,7 +117,6 @@ export default {
   }),
 
   created() {
-    console.log(this.card);
     this.initialiseIsPersisting();
     this.initialiseIsCollapsed();
 
