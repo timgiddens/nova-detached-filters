@@ -8,6 +8,8 @@ class NovaDetachedFilters extends Card
 {
     public $width = '1/3'; // (full, 1/3, 1/2 etc..)
     public $filters = [];
+    public $title = null;
+    public $helpText = null;
     protected $withReset = false;
     protected $withToggle = false;
     protected $persistFilters = false;
@@ -31,6 +33,26 @@ class NovaDetachedFilters extends Card
             return $this;
         }
         $this->width = $width;
+
+        return $this;
+    }
+
+    public function title($title)
+    {
+        if (empty($title)) {
+            return $this;
+        }
+        $this->title = $title;
+
+        return $this;
+    }
+
+    public function helpText($helpText)
+    {
+        if (empty($title)) {
+            return $this;
+        }
+        $this->helpText = $helpText;
 
         return $this;
     }

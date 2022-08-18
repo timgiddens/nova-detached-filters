@@ -12,11 +12,15 @@ class DetachedFilterColumn implements JsonSerializable
     public $filters = [];
     protected $width = 'w-auto';
     protected $name = 'detached-filter-column';
+    protected $title = null;
+    protected $helpText = null;
 
-    public function __construct($filters, $width = 'w-auto')
+    public function __construct($filters, $width = 'w-auto', $title = null, $helpText = null)
     {
         $this->filters = $filters;
         $this->width = $width;
+        $this->title = $title;
+        $this->helpText = $helpText;
     }
 
     /**
@@ -27,6 +31,8 @@ class DetachedFilterColumn implements JsonSerializable
         return [
             'width' => $this->width,
             'name' => $this->name,
+            'title' => $this->title,
+            'helpText' => $this->helpText,
             'filters' => collect(is_callable($this->filters) ? $this->filters() : $this->filters)->map(function ($filter) {
                 return $filter->jsonSerialize();
             }),

@@ -1,5 +1,9 @@
 <template>
   <card class="flex flex-col nova-detached-filters-card">
+    <div class="p-5 pb-0" v-if="card.title || card.help">
+      <h4 v-if="card.title">{{ card.title }}</h4>
+      <p v-if="card.help" :class="[{ 'mt-1': card.title }]">{{ card.help }}</p>
+    </div>
     <div class="px-3 py-4 detached-filters" :class="{ collapsed: isCollapsed }">
       <div class="flex flex-wrap" :class="getWidth(item)" v-for="item in card.filters" :key="item.key">
         <!-- Single Filter -->
@@ -113,6 +117,7 @@ export default {
   }),
 
   created() {
+    console.log(this.card);
     this.initialiseIsPersisting();
     this.initialiseIsCollapsed();
 
