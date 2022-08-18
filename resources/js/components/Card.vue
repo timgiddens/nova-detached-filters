@@ -1,8 +1,8 @@
 <template>
   <card class="flex flex-col nova-detached-filters-card">
-    <div class="p-5 pb-0" v-if="card.title || card.help">
+    <div class="p-5 pb-0" v-if="card.title || card.subheader">
       <h4 v-if="card.title">{{ card.title }}</h4>
-      <p v-if="card.help" :class="[{ 'mt-1': card.title }]">{{ card.help }}</p>
+      <p v-if="card.subheader" :class="[{ 'mt-1': card.title }]">{{ card.subheader }}</p>
     </div>
     <div class="px-3 py-4 detached-filters" :class="{ collapsed: isCollapsed }">
       <div class="flex flex-wrap" :class="getWidth(item)" v-for="item in card.filters" :key="item.key">

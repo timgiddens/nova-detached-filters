@@ -9,7 +9,7 @@ class NovaDetachedFilters extends Card
     public $width = '1/3'; // (full, 1/3, 1/2 etc..)
     public $filters = [];
     public $title = null;
-    public $helpText = null;
+    public $subheader = null;
     protected $withReset = false;
     protected $withToggle = false;
     protected $persistFilters = false;
@@ -47,12 +47,12 @@ class NovaDetachedFilters extends Card
         return $this;
     }
 
-    public function helpText($helpText)
+    public function subheader($subheader)
     {
-        if (empty($title)) {
+        if (empty($subheader)) {
             return $this;
         }
-        $this->helpText = $helpText;
+        $this->subheader = $subheader;
 
         return $this;
     }
@@ -116,13 +116,15 @@ class NovaDetachedFilters extends Card
     public function jsonSerialize()
     {
         return array_merge(parent::jsonSerialize(), [
+            'title' => $this->title,
+            'subheader' => $this->subheader,
             'withReset' => $this->withReset,
             'withToggle' => $this->withToggle,
             'perPageOptions' => $this->getPerPageOptions(),
             'showPerPageInMenu' => $this->showPerPageInMenu,
             'persistFilters' => $this->persistFilters,
             'persistFiltersDefault' => $this->persistFiltersDefault,
-            'filters' => $this->serializeFilters(),
+            'filters' => $this->serializeFilters()
         ]);
     }
 
