@@ -320,6 +320,7 @@ export default {
   $transition: cubic-bezier(0.6, 0.4, 0.1, 0.9);
   height: auto;
   position: relative;
+  border-top-right-radius: 0;
 
   .detached-filters {
     display: flex;
