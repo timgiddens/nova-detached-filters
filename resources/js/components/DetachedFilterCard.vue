@@ -9,7 +9,7 @@
       }"
     >
       <ActionButton v-if="card.withReset" @click="clearAllFilters()">
-        <ResetIcon />
+        Reset Filters
       </ActionButton>
 
       <ActionButton @click="toggleIsPersisting" v-if="card.persistFilters">
